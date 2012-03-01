@@ -1,0 +1,6 @@
+log/
+coverage/
+doc/
+.sass-cache/
+*.log
+database.yml
