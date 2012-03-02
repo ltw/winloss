@@ -4,6 +4,7 @@ gem 'rails', '3.2.1'
 gem 'pg'
 gem 'jquery-rails'
 gem 'kronic', :require => false
+gem 'rein'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
