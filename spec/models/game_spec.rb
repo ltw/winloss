@@ -12,11 +12,11 @@ describe Game do
     end
 
     it 'tries to save on parse!' do
-      game = double('game')
+      game = double 'game'
       Game.stub(:parse).and_return game
       game.should_receive(:save!).once
 
-      Game.parse!('Odin beat Lucas 21-7')
+      Game.parse! 'Odin beat Lucas 21-7'
     end
   end
 end
