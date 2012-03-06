@@ -30,6 +30,7 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.0)
     builder (3.0.0)
+    coderay (1.0.5)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -53,10 +54,15 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.7.0)
     mime-types (1.17.2)
     multi_json (1.0.4)
     pg (0.13.0)
     polyglot (0.3.3)
+    pry (0.9.8)
+      coderay (~> 1.0.5)
+      method_source (~> 0.7)
+      slop (>= 2.4.3, < 3)
     rack (1.4.1)
     rack-cache (1.1)
       rack (>= 0.4)
@@ -102,6 +108,7 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    slop (2.4.3)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -124,6 +131,7 @@ DEPENDENCIES
   jquery-rails
   kronic
   pg
+  pry
   rails (= 3.2.1)
   rein
   rspec-rails
