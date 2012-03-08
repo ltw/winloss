@@ -15,14 +15,4 @@ class Game < ActiveRecord::Base
   def self.parse! phrase
     parse(phrase).save!
   end
-
-  protected
-
-  # allow submission of a string to the winner and loser setter
-  [:winner, :loser].each do |attribute|
-    define_method "#{attribute}=" do |value|
-      value = User.find_or_create_by_name value unless value.respond_to? :name
-      super(value)
-    end
-  end
 end
