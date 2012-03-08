@@ -19,12 +19,7 @@ describe Parser do
     end
   end
 
-  [
-    'Odin is a douche.',
-    'This is not an appropriate phrase'
-  ].each do |phrase|
-    it 'will not parse stupid input' do
-      Parser.parse(phrase).should be_nil
-    end
+  it 'will not parse stupid input' do
+    Parser.parse('Odin wins too much.').should be_nil
   end
 end
