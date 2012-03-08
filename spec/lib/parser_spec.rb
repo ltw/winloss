@@ -11,8 +11,8 @@ describe Parser do
     context "parsing '#{phrase}'" do
       subject { Parser.parse(phrase) }
 
-      its([:winner])       { should == values[0] }
-      its([:loser])        { should == values[1] }
+      its([:winner_name])  { should == values[0] }
+      its([:loser_name])   { should == values[1] }
       its([:winner_score]) { should == values[2] }
       its([:loser_score])  { should == values[3] }
       its([:played_date])  { should == values[4] }

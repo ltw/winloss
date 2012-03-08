@@ -11,7 +11,7 @@ module Parser
 
       # find winners and losers
       names = [first_name, second_name]
-      game[:winner], game[:loser] = *(first_is_winner ? names : names.reverse)
+      game[:winner_name], game[:loser_name] = *(first_is_winner ? names : names.reverse)
 
       # find winner and loser scores
       scores = [first_score, second_score].map(&:to_i)
