@@ -6,9 +6,14 @@ describe Game do
     it { should respond_to :parse }
     it { should respond_to :parse! }
 
-    # TODO: make this not require two DB reads when creating users
-    it 'returns a valid game when parsing a correct string' do
-      Game.parse('Odin beat Lucas 21-7').should be_valid
+    context do
+      before do
+        User.stub(:find_by_name).and_return { mock_model(User) }
+      end
+
+      it 'returns a valid game when parsing a correct string' do
+        Game.parse('Odin beat Lucas 21-7').should be_valid
+      end
     end
 
     it 'tries to save on parse!' do

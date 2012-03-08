@@ -9,7 +9,7 @@ class Game < ActiveRecord::Base
   validates :played_date, :presence => true
 
   def self.parse phrase
-    new Parser.parse phrase
+    GameCreator.new Parser.parse(phrase)
   end
 
   def self.parse! phrase
