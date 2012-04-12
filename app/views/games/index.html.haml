@@ -1,0 +1,16 @@
+%header
+  %hgroup
+    %h1 Win-Loss
+    %h2 Record ass-whoopings.
+
+= form_tag games_path do |f|
+  = text_field_tag :result, nil, placeholder: 'Record your result', autofocus: true
+  = submit_tag
+
+%section
+  %dl
+    - User.all.sort {|x,y| y.points_per_game <=> x.points_per_game }.each do |user|
+      %dt[user]
+        = user.name
+      %dd[user]
+        = number_with_precision user.points_per_game, precision: 2
