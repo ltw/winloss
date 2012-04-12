@@ -4,3 +4,4 @@ doc/
 .sass-cache/
 *.log
 database.yml
+tmp/
