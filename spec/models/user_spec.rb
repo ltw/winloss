@@ -11,5 +11,9 @@ describe User do
     it 'should return scores' do
       loser.scores.should eq [5,7,8]
     end
+
+    it 'should return points per game' do
+      loser.points_per_game.should be_within(0.1).of(6.666)
+    end
   end
 end
