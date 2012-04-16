@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   def points_per_game
     scores.empty? ? 0 : scores.reduce(0, :+).to_f / scores.length
   end
