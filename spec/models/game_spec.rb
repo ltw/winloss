@@ -24,4 +24,10 @@ describe Game do
       Game.parse! 'Odin beat Lucas 21-7'
     end
   end
+
+  context 'for_user' do
+    it 'should select games where the user is either the winner or the loser' do
+      Game.for_user(OpenStruct.new(:id => 5)).to_sql.should =~ /WHERE \(winner_id = 5 OR loser_id = 5\)$/
+    end
+  end
 end
