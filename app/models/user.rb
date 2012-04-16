@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
   def games_count
     scores.count
   end
+
+  def to_s
+    name
+  end
 end
