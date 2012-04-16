@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'kronic', :require => false
 gem 'rein'
 gem 'haml'
+gem 'bootstrap-sass'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
