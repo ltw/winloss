@@ -1,3 +1,30 @@
 //= require_self
 //= require_tree .
 @import 'bootstrap';
+
+body{
+  font-family:'Helvetica';
+  .container{width:770px;margin:0 auto;}
+  header{
+    h1{margin:1em 0 0;font-size:32px;}
+    h2{font-size:22px;margin:0.5em 0 1em;}
+  }
+
+  section {
+    &#entry {text-align:center;
+      input[type=text]{padding:0.5em;width:400px;}
+      .btn{margin-top:-8px;}
+    }
+
+    &#leaderboard{float:left;width:350px;margin-right:2em;
+      td.user{width:100px;}
+      .points_per_game{font-weight:bold;}
+    }
+
+    &#recent {overflow:hidden;
+      ul#last-games{margin:0;
+        li{list-style:none;line-height:32px;border-top:1px solid #ccc;padding-left:1em;}
+      }
+    }
+  }
+}

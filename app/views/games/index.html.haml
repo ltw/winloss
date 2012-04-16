@@ -3,29 +3,32 @@
     %h1 Win-Loss
     %h2 Record ass-whoopings.
 
-= form_tag games_path do |f|
-  = text_field_tag :result, nil, placeholder: 'Record your result', autofocus: true
-  = submit_tag
+%section#entry
+  = form_tag games_path do |f|
+    = text_field_tag :result, nil, placeholder: 'Record your result', autofocus: true
+    = submit_tag 'Record', :class => 'btn btn-primary'
 
-%section
-  %dl
-    - User.all.sort {|x,y| y.points_per_game <=> x.points_per_game }.each do |user|
-      %dt[user]
-        = user.name
-      %dd[user]
-        - if user.points_per_game > 0
-          %span.points_per_game
-            = number_with_precision user.points_per_game, precision: 2
-          %span.count
-            over
-            = Game.for_user(user).count
-            games
-        - else
-          %span.points_per_game
-            \--
+%section#leaderboard
+  %h2 Leaderboard
+  %table.table.table-striped
+    %tbody
+      - User.all.sort {|x,y| y.points_per_game <=> x.points_per_game }.each do |user|
+        %tr[user]
+          %td.user= user.name
+          %td.ranking
+            - if user.points_per_game > 0
+              %span.points_per_game
+                = number_with_precision user.points_per_game, precision: 2
+              %span.count
+                over
+                = Game.for_user(user).count
+                games
+            - else
+              %span.points_per_game
+                \--
 
-%section
+%section#recent
   %h2 Recent Games
-  %ul#last_games
+  %ul#last-games
     - Game.last(5).reverse.each do |game|
       = game_entry game
