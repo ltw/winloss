@@ -14,6 +14,12 @@
         = user.name
       %dd[user]
         - if user.points_per_game > 0
-          = number_with_precision user.points_per_game, precision: 2
+          %span.points_per_game
+            = number_with_precision user.points_per_game, precision: 2
+          %span.count
+            over
+            = user.games_count
+            games
         - else
-          \--
+          %span.points_per_game
+            \--
