@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
     SQL
     ).flatten.map(&:to_i)
   end
+
+  def games_count
+    scores.count
+  end
 end
