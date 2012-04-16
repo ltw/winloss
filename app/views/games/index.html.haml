@@ -18,7 +18,7 @@
             = number_with_precision user.points_per_game, precision: 2
           %span.count
             over
-            = user.games_count
+            = Game.for_user(user).count
             games
         - else
           %span.points_per_game
