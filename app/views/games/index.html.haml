@@ -28,4 +28,4 @@
   %h2 Recent Games
   %ul#last_games
     - Game.last(5).reverse.each do |game|
-      %li[game]= game
+      = game_entry game
