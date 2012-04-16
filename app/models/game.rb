@@ -15,4 +15,8 @@ class Game < ActiveRecord::Base
   def self.parse! phrase
     parse(phrase).save!
   end
+
+  def to_s
+    "#{winner} beat #{loser} #{winner_score}-#{loser_score} on #{played_date}"
+  end
 end
