@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  validates :name, presence: true, uniqueness: true
+
   def games
     Game.for_user(self)
   end
