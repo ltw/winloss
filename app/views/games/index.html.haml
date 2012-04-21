@@ -1,13 +1,3 @@
-%header
-  %hgroup
-    %h1 Win-Loss
-    %h2 Record ass-whoopings.
-
-%section#entry
-  = form_tag games_path do |f|
-    = text_field_tag :result, nil, placeholder: 'Record your result', autofocus: true
-    = submit_tag 'Record', :class => 'btn btn-primary'
-
 %section#leaderboard
   %h2 Leaderboard
   %table.table.table-striped
