@@ -16,4 +16,15 @@ describe User do
       loser.points_per_game.should be_within(0.1).of(6.666)
     end
   end
+
+  context 'points per game' do
+    let(:user) { User.create! :name => 'Lucas' }
+    before do
+      user.stub(:scores).and_return([10,5,21,18,16,14])
+    end
+
+    it 'should average scores' do
+      user.points_per_game.should be_within(0.1).of(14)
+    end
+  end
 end
