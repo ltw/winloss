@@ -2,7 +2,7 @@ require 'kronic'
 
 module Parser
   def self.parse phrase
-    pattern = /([A-z]+) (.*) ([^ ].*) ([0-9]{1,2})-([0-9]{1,2})(?: (.*))?/
+    pattern = /([A-z]+(?: \+ [A-z]+)?)? (.+?) ([A-z]+(?: \+ [A-z]+)?)? ([0-9]{1,2})-([0-9]{1,2})(?: (.*))?/
     phrase.scan(pattern).map do |first_name, adjective, second_name, first_score, second_score, date|
       game = {}
       # this is a cheat because I can't think of any single word that makes the
