@@ -17,6 +17,23 @@
               %span.points_per_game
                 \--
 
+  %h2 Team Leaderboard
+  %table.table.table-striped
+    %tbody
+      - Team.all.sort {|x,y| y.points_per_game <=> x.points_per_game }.each do |team|
+        %tr[team]
+          %td.team= team.name
+          %td.ranking
+            - if team.points_per_game > 0
+              %span.points_per_game
+                = number_with_precision team.points_per_game, precision: 2
+              %span.count
+                over
+                = TeamGame.for_team(team).count
+                games
+            - else
+              %span.points_per_game
+                \--
 %section#recent
   %h2 Recent Games
   %ul#last-games
