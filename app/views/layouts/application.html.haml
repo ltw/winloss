@@ -7,4 +7,15 @@
     = csrf_meta_tags
   %body
     .container
+      %header
+        %hgroup
+          %h1 Win-Loss
+          %h2 Record ass-whoopings.
+
+      %section#entry
+        = form_tag games_path do |f|
+          = text_field_tag :result, nil, placeholder: 'Record your result', autofocus: true
+          = select_tag 'game_type', '<option>Individual</option><option>Team</option>'.html_safe
+          = submit_tag 'Record', :class => 'btn btn-primary'
+
       = yield

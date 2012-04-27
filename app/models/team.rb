@@ -1,9 +1,17 @@
-class User < ActiveRecord::Base
-  has_and_belongs_to_many :teams
-  validates :name, presence: true, uniqueness: true
+class Team < ActiveRecord::Base
+  has_and_belongs_to_many :users
+  before_create :set_team_name
+
+  def self.create_from_user_names(*names)
+    create! :users => User.where(:name => names)
+  end
+
+  def set_team_name
+    self.name ||= self.users.map(&:name).sort.join(' + ')
+  end
 
   def games
-    Game.for_user(self)
+    TeamGame.for_team(self)
   end
 
   def points_per_game
@@ -13,14 +21,10 @@ class User < ActiveRecord::Base
   def scores
     connection.select_rows(<<-SQL
       SELECT    (CASE WHEN winner_id = #{self.id} THEN winner_score ELSE loser_score END) as score
-      FROM      games
+      FROM      team_games
       WHERE     winner_id = #{self.id}
       OR        loser_id = #{self.id}
     SQL
     ).flatten.map(&:to_i)
-  end
-
-  def to_s
-    name
   end
 end

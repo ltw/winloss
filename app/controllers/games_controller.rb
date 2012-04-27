@@ -3,7 +3,13 @@ class GamesController < ApplicationController
   end
 
   def create
-    game = Game.parse(params[:result])
+    game = case params[:game_type]
+    when 'Individual'
+      Game.parse(params[:result])
+    when 'Team'
+      TeamGame.parse(params[:result])
+    end
+
     if game.save
       redirect_to games_path, :notice => t(:valid_game)
     else
