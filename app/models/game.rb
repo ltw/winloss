@@ -17,4 +17,8 @@ class Game < ActiveRecord::Base
   def self.parse! phrase
     parse(phrase).save!
   end
+
+  def self.scores_for(user)
+    for_user(user).select("(CASE WHEN winner_id = #{user.id} THEN winner_score ELSE loser_score END) as score").map { |game| game.score.to_i }
+  end
 end
