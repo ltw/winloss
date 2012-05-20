@@ -1,21 +1,22 @@
 %section#leaderboard
   %h2 Leaderboard
   %table.table.table-striped
+    %thead
+      %tr
+        %th.user
+        %th.this-week This Week
+        %th.this-month This Month
+        %th.all-time All Time
     %tbody
       - User.all.sort {|x,y| y.points_per_game <=> x.points_per_game }.each do |user|
         %tr[user]
           %td.user= user.name
-          %td.ranking
-            - if user.points_per_game > 0
-              %span.points_per_game
-                = number_with_precision user.points_per_game, precision: 2
-              %span.count
-                over
-                = Game.for_user(user).count
-                games
-            - else
-              %span.points_per_game
-                \--
+          %td.this-week.ranking
+            = ranking_for user, (Date.today.beginning_of_week..Date.today)
+          %td.this-month.ranking
+            = ranking_for user, (Date.today.beginning_of_month..Date.today.end_of_month)
+          %td.all-time.ranking
+            = ranking_for user, nil
 
   %h2 Team Leaderboard
   %table.table.table-striped
@@ -25,7 +26,7 @@
           %td.team= team.name
           %td.ranking
             - if team.points_per_game > 0
-              %span.points_per_game
+              %span.points-per-game
                 = number_with_precision team.points_per_game, precision: 2
               %span.count
                 over
