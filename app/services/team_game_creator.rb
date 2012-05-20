@@ -10,9 +10,13 @@ class TeamGameCreator
   protected
 
   def self.find_teams_for_players(winner, loser)
-    {
-      :winner => Team.find_by_name(winner),
-      :loser  => Team.find_by_name(loser)
-    }
+    teams = {}
+    [:winner, :loser].each do |field|
+      name = field == :winner ? winner : loser
+      team = Team.find_by_name(name)
+      team = Team.create_from_user_names(name.split(' + ')) if team.nil?
+      teams[field] = team
+    end
+    teams
   end
 end
