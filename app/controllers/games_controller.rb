@@ -10,10 +10,10 @@ class GamesController < ApplicationController
       TeamGame.parse(params[:result])
     end
 
-    if game.save
-      redirect_to games_path, :notice => t(:valid_game)
+    if game && game.save
+      redirect_to root_path, :notice => t(:valid_game)
     else
-      render :index, :alert => t(:invalid_game)
+      redirect_to root_path, :alert => t(:invalid_game)
     end
   end
 
