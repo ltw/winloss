@@ -4,3 +4,4 @@
 en:
   valid_game: "Game registered."
   invalid_game: "The game you entered was invalid. Please check that you spelled all the names correctly."
+  game_destroyed: "Game destroyed."

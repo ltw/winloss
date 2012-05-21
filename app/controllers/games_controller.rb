@@ -16,4 +16,11 @@ class GamesController < ApplicationController
       render :index, :alert => t(:invalid_game)
     end
   end
+
+  def destroy
+    game = Game.find params[:id]
+    game.destroy
+
+    redirect_to root_path, :notice => t(:game_destroyed)
+  end
 end

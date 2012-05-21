@@ -1,5 +1,5 @@
 module GamesHelper
-  def game_entry(game)
+  def game_entry(game, destroy=false)
     content_tag :li, :class => 'game', :id => dom_id(game) do
       content = content_tag :span, game.winner, :class => 'winner'
       content += ' beat '
@@ -8,6 +8,10 @@ module GamesHelper
       content += content_tag :span, "#{game.winner_score}-#{game.loser_score}", :class => 'score'
       content += ' on '
       content += content_tag :span, game.played_date, :class => 'game_date'
+      if destroy
+        link = link_to(raw('&times;'), game_path(game), :confirm => 'Are you sure?', :method => :delete)
+        content += content_tag :span, link, :class => 'delete'
+      end
       content
     end
   end
