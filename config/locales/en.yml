@@ -2,4 +2,5 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  valid_game: "Game registered."
+  invalid_game: "The game you entered was invalid. Please check that you spelled all the names correctly."

@@ -2,6 +2,13 @@
 //= require_tree .
 @import 'bootstrap';
 
+.alert{
+  &.alert-block   {margin-top:-8px;margin-bottom:16px;}
+  &.alert-notice  {@extend .alert-success;}
+  &.alert-alert   {@extend .alert-error;}
+  &.alert-message {@extend .alert-info;}
+}
+
 body{
   font-family:'Helvetica';
   .container{width:870px;margin:0 auto;}

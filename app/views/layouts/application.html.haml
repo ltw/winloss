@@ -12,6 +12,8 @@
           %h1 Win-Loss
           %h2 Record ass-whoopings.
 
+      = flash_messages_for :notice, :alert, :message
+
       %section#entry
         = form_tag games_path do |f|
           = text_field_tag :result, nil, placeholder: 'Record your result', autofocus: true
