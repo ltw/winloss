@@ -1,40 +1,7 @@
 %section#leaderboard
-  %h2 Leaderboard
-  %table.table.table-striped
-    %thead
-      %tr
-        %th.user
-        %th.this-week This Week
-        %th.this-month This Month
-        %th.all-time All Time
-    %tbody
-      - User.all.sort {|x,y| y.points_per_game <=> x.points_per_game }.each do |user|
-        %tr[user]
-          %td.user= user.name
-          %td.this-week.ranking
-            = ranking_for user, (Date.today.beginning_of_week..Date.today)
-          %td.this-month.ranking
-            = ranking_for user, (Date.today.beginning_of_month..Date.today.end_of_month)
-          %td.all-time.ranking
-            = ranking_for user, nil
+  = render 'leaderboard'
+  = render 'team_leaderboard'
 
-  %h2 Team Leaderboard
-  %table.table.table-striped
-    %tbody
-      - Team.all.sort {|x,y| y.points_per_game <=> x.points_per_game }.each do |team|
-        %tr[team]
-          %td.team= team.name
-          %td.ranking
-            - if team.points_per_game > 0
-              %span.points-per-game
-                = number_with_precision team.points_per_game, precision: 2
-              %span.count
-                over
-                = TeamGame.for_team(team).count
-                games
-            - else
-              %span.points_per_game
-                \--
 %section#recent
   %h2 Recent Games
   %ul#last-games
