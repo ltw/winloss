@@ -12,15 +12,16 @@ describe 'Entering a game result' do
   end
 
   it 'should add a game' do
-    Game.count.should == 1
-    Game.first.winner.should == nate
-    Game.first.loser.should  == lucas
+    Game.count.should eq 1
+    Game.first.winner.should eq nate
+    Game.first.loser.should eq lucas
   end
 
   it 'should reaverage scores' do
-    nate_line = find(:css, "section#leaderboard table tr#user_#{nate.id} .points_per_game")
-    nate_line.text.strip.should == '21.00'
-    lucas_line = find(:css, "section#leaderboard table tr#user_#{lucas.id} .points_per_game")
-    lucas_line.text.strip.should == '19.00'
+    nate_line = find(:css, "section#leaderboard table tr#user_#{nate.id} td.all-time .points-per-game")
+    nate_line.text.strip.should eq '21.00'
+
+    lucas_line = find(:css, "section#leaderboard table tr#user_#{lucas.id} td.all-time .points-per-game")
+    lucas_line.text.strip.should eq '19.00'
   end
 end
