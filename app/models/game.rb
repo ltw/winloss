@@ -8,7 +8,7 @@ class Game < ActiveRecord::Base
   validates :winner_score, :loser_score, :presence => true
   validates :played_date, :presence => true
 
-  scope :for_user, lambda { |user| where("winner_id = #{user.id} OR loser_id = #{user.id}") }
+  scope :for_user, lambda { |user| where('winner_id = :user_id OR loser_id = :user_id', user_id: user.id) }
 
   def self.parse phrase
     GameCreator.new Parser.parse(phrase)
