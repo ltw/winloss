@@ -1,0 +1,18 @@
+postgresql: &postgresql
+  adapter: postgresql
+  encoding: utf8
+  min_messages: warning
+  pool: 5
+  username: <%= ENV['USER'] %>
+
+development:
+  <<: *postgresql
+  database: winloss_development
+
+test: &test
+  <<: *postgresql
+  database: winloss_test
+
+production:
+  <<: *postgresql
+  database: winloss
