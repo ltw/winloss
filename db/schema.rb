@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427030403) do
+ActiveRecord::Schema.define(:version => 20120608193416) do
 
   create_table "games", :force => true do |t|
     t.integer  "winner_id",    :null => false
