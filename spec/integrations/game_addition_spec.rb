@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pry'
 
 describe 'Entering a game result' do
   let!(:nate)  { User.create! :name => 'Nate' }
