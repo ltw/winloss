@@ -25,3 +25,23 @@ describe 'Entering a game result' do
     lucas_line.text.strip.should eq '19.00'
   end
 end
+
+describe 'Entering a team game result' do
+  let!(:adrian) { User.create! :name => 'Adrian' }
+  let!(:lucas)  { User.create! :name => 'Lucas' }
+  let!(:nate)   { User.create! :name => 'Nate' }
+  let!(:tate)   { User.create! :name => 'Tate' }
+
+  before do
+    visit root_path
+    fill_in 'result', with: 'Adrian + Lucas beat Nate + Tate 21-14'
+    select 'Team', from: 'game_type'
+    click_button 'Record'
+  end
+
+  it 'should add a team game' do
+    TeamGame.count.should eq 1
+    TeamGame.first.winner.users.should eq [adrian, lucas]
+    TeamGame.first.loser.users.should eq [nate, tate]
+  end
+end
