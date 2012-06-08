@@ -30,4 +30,16 @@ describe Game do
       Game.for_user(OpenStruct.new(:id => 5)).to_sql.should =~ /WHERE \(winner_id = 5 OR loser_id = 5\)$/
     end
   end
+
+  context 'scores_for' do
+    let(:winner) { User.create! :name => 'Lucas' }
+    let(:loser)  { User.create! :name => 'Odin' }
+    let!(:games) do
+      [5,7,8].map {|num| Game.create! :winner => winner, :loser => loser, :winner_score => 21, :loser_score => num, :played_date => Date.today }
+    end
+
+    it 'should return scores' do
+      Game.scores_for(loser).should eq [5,7,8]
+    end
+  end
 end
