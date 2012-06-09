@@ -11,13 +11,13 @@ This app is designed to be a stand-alone install of a Rails app, as there's no a
 
 To record a score, enter a natural language string into the results box, e.g.
 
-**Odin got his ass beaten by Lucas 21-7 yesterday**
+**Lucas got his ass beaten by Odin 21-2 yesterday**
 
-This records that Lucas is the winner, Odin is the loser, Lucas got 21 points, Odin got 7 points and the game happened yesterday.
+This records that Odin is the winner, Lucas is the loser, Odin got 21 points, Lucas got 2 points and the game happened yesterday.
 
-**Lucas beat Odin 4-21**
+**Odin beat Lucas 4-21**
 
-This records that Lucas won, Odin lost, Lucas got 21 points, Odin got 4 points and the game happened today.
+This records that Odin won, Lucas lost, Odin got 21 points, Lucas got 4 points and the game happened today.
 
 ## Other Features
 
