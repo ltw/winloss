@@ -1,29 +1,30 @@
 # WinLoss
 ## Because the people you work with are assholes who deserve to be beaten.
 
-A ping-pong leaderboard for the Ennova office.
+A ping-pong leaderboard designed for the [Ennova](http://ennova.com.au) office.
 
-## Spec
+This board shows Points-Per-Game averages as each person's score, along with the number of games recorded for that person, broken down by week, month and all-time.
 
-There should be two views of the data:
+This app is designed to be a stand-alone install of a Rails app, as there's no authentication or anything built for a single server to host multiple sets (or leagues) of players.
 
-- Current Leader (scoped to this week)
-- Champions (scoped to all-time)
+## Usage
 
-Eventually, there may be alternate views aggregating by overall points, average PPG, etc.
+To record a score, enter a natural language string into the results box, e.g.
 
-### Entry
+**Odin got his ass beaten by Lucas 21-7 yesterday**
 
-Entry should be a natural-language field. The following are valid:
+This records that Lucas is the winner, Odin is the loser, Lucas got 21 points, Odin got 7 points and the game happened yesterday.
 
-    Odin beat Tate 21-5 => { winner: odin, loser: tate, winner_score: 21, loser_score: 5, played_at: Time.now }
-    Jason was beaten by Tate 21-6 an hour ago => { winner: tate, loser: jason, winner_score: 21, loser_score: 6, played_at: Time.now - 1.hour }
+**Lucas beat Odin 4-21**
 
-## Schema
-### Users
+This records that Lucas won, Odin lost, Lucas got 21 points, Odin got 4 points and the game happened today.
 
-Standard user table. Capture name, email address.
+## Other Features
 
-### Games
+You can delete the last game entered if you made a mistake.
 
-    | winner_id | loser_id | winner_score | loser_score | played_at |
+## Issues
+
+- no way to create users through the UI
+- names must be spelt with correct case when recording results
+- a hack determines verb object direction (i.e. one word actions indicate that the person on the left is the winner, multiple word actions indicate that the person to the right is the winner)
