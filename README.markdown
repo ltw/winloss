@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/ltw/winloss.png)](http://travis-ci.org/ltw/winloss)
+
 # WinLoss
 ## Because the people you work with are assholes who deserve to be beaten.
 
