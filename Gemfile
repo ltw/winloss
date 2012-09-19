@@ -16,10 +16,10 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'rspec-rails'
 end
 
-group :development, :test do
-  gem 'rspec-rails'
+group :development do
   gem 'pry'
   gem 'heroku'
 end

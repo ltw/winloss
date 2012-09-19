@@ -1,8 +1,7 @@
 language: ruby
 rvm:
   - 1.9.3
-env:
-  - DB=postgresql
+bundler_args: --without development
 before_script:
   - psql -c 'create database winloss_test' -U postgres
   - cp config/database.example.yml config/database.yml
