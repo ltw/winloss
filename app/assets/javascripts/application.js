@@ -1,4 +1,4 @@
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require vendor/bootstrap
 //= require_tree .
