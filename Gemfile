@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'kronic', require: false
 gem 'rein'
 gem 'haml'
+gem 'thin'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -21,8 +22,4 @@ end
 group :development do
   gem 'pry'
   gem 'heroku'
-end
-
-group :development, :test do
-  gem 'thin'
 end
