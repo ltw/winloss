@@ -21,4 +21,22 @@ class Game < ActiveRecord::Base
   def self.scores_for(user)
     for_user(user).select("(CASE WHEN winner_id = #{user.id} THEN winner_score ELSE loser_score END) as score").map { |game| game.score.to_i }
   end
+
+  def winner_name
+    winner.name
+  end
+
+  def loser_name
+    loser.name
+  end
+
+  def as_json(options=nil)
+    options[:only] = options[:methods] = []
+    options[:only] << :winner_score
+    options[:only] << :loser_score
+    options[:only] << :played_date
+    options[:methods] << :winner_name
+    options[:methods] << :loser_name
+    super(options)
+  end
 end
