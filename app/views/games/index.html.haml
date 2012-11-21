@@ -5,5 +5,5 @@
 %section#recent
   %h2 Recent Games
   %ul#last-games
-    - Game.last(5).reverse.each_with_index do |game, i|
+    - @games.each_with_index do |game, i|
       = game_entry game, i == 0

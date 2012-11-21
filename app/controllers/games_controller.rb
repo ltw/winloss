@@ -1,5 +1,10 @@
 class GamesController < ApplicationController
+  respond_to :html, :json
+
   def index
+    count = params[:count] || 5
+    @games = Game.last(count.to_i).reverse
+    respond_with({:games => @games})
   end
 
   def create
