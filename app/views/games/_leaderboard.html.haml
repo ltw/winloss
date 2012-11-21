@@ -7,7 +7,7 @@
       %th.this-month This Month
       %th.all-time All Time
   %tbody
-    - User.all.sort {|x,y| y.points_per_game <=> x.points_per_game }.each do |user|
+    - User.top_ranked.each do |user|
       %tr[user]
         %td.user
           = user.name
