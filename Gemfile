@@ -22,3 +22,7 @@ group :development do
   gem 'pry'
   gem 'heroku'
 end
+
+group :development, :test do
+  gem 'thin'
+end
