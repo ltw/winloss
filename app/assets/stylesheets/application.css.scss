@@ -13,12 +13,13 @@ body{
   font-family:'Helvetica';
   .container{width:870px;margin:0 auto;}
   header{
-    h1{margin:1em 0 0;font-size:32px;}
-    h2{font-size:22px;margin:0.5em 0 1em;}
+    h1{margin:0.5em 0 0;font-size:32px;}
+    h2{font-size:22px;margin:0.5em 0;}
   }
 
   section {
     &#entry {text-align:center;
+      margin-top: 1em;
       input[type=text]{padding:0.5em;width:400px;}
       .btn{margin-top:-8px;}
     }
