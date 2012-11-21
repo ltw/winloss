@@ -1,6 +1,6 @@
 %section#leaderboard
   = render 'leaderboard'
-  = render 'team_leaderboard'
+  = render 'team_leaderboard' if Team.all.present?
 
 %section#recent
   %h2 Recent Games
