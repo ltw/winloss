@@ -23,4 +23,12 @@ class User < ActiveRecord::Base
   def to_s
     name
   end
+
+  def as_json(options)
+    options[:only] = []
+    options[:only] << :name
+    options[:methods] = []
+    options[:methods] << :points_per_game
+    super(options)
+  end
 end
